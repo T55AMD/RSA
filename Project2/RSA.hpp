@@ -121,12 +121,18 @@ void RSA(mpz_t& e, mpz_t& d, mpz_t& n) {
      * 注意：先赋值 n，再释放 n1。
      */
 
-    mpz_fdiv_r(ran,ran,n1);
-    mpz_fdiv_r(x, x, n1);
-    
+    mpz_fdiv_r(ran,ran,phi);
+    mpz_fdiv_r(x, x, phi);
     mpz_set(n, n1);
     mpz_set(e, ran);
     mpz_set(d, x);
+   // gmp_printf("%Zd %Zd %Zd\n", &n, &e, &d);
+    mpz_t tmp1, tmp2, tmp3;
+    mpz_inits(tmp1, tmp2,tmp3, NULL);
+    mpz_mul(tmp1, e, d);
+    mpz_mod(tmp1,tmp1, phi);
+    //gmp_printf("tmp1==%Zd\n", &tmp1);
+    mpz_clears(tmp1, tmp2, tmp3, NULL);
     mpz_clears(p, q, p1, q1, phi, ran, x, y, n1, NULL);
 
     /*
