@@ -81,7 +81,7 @@ void encrypt() {
         quickpow(ans, tmp,e,m);
         char *k1=mpz_get_str(NULL, 2, ans);
       //  free(k1);
-        fout1 << k1<<" ";
+        fout1<<k1<<" ";
         mpz_clears(tmp, ans,NULL);
     }
     std::cout << std::endl;
