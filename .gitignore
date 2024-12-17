@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+encryptoed.txt
+Private_Key.txt
+Public_Key.txt
