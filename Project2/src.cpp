@@ -45,7 +45,8 @@ void encrypt() {
     }
     std::string filename;
     std::cout << "请输入文件名称，不要带空格" << std::endl;
-    std::cout << "演示用文件的名词为nuaa.txt" << std::endl;  
+    std::cout << "演示用文件的名词为nuaa.txt" << std::endl;
+    
     std::cout << "请输入文件名" << std:: endl;
     std::cin >> filename;
     std::ifstream fin(filename);
@@ -70,17 +71,15 @@ void encrypt() {
     for (int i = 0; i < content.length() / rsaLength;i++) {
         std::string str = "";
         for (int j = i * rsaLength; j < (i + 1) * rsaLength; j++) {
+        ;
             str += Table[content[j]];
          //   std::cout << (int)(content[j]) << "\n";
         }
-  //      std::cout << str<<" " << str.length() << std::endl;
         mpz_t tmp,ans;
         mpz_inits(tmp,ans,NULL);
         mpz_set_str(tmp,str.c_str(), 2);
         quickpow(ans, tmp,e,m);
         char *k1=mpz_get_str(NULL, 2, ans);
-        fout1<< k1<<" ";
-    //    std::cout << k1 << std::endl;
       //  free(k1);
         mpz_clears(tmp, ans,NULL);
     }

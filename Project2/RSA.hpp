@@ -127,7 +127,6 @@ void RSA(mpz_t& e, mpz_t& d, mpz_t& n) {
     mpz_set(n, n1);
     mpz_set(e, ran);
     mpz_set(d, x);
- //   gmp_printf("%Zd %Zd %Zd\n", &n1, &x,&d);
     mpz_clears(p, q, p1, q1, phi, ran, x, y, n1, NULL);
 
     /*
